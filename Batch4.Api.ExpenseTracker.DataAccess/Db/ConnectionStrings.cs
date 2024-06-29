@@ -14,7 +14,7 @@ namespace Batch4.Api.ExpenseTracker.DataAccess.Db
             DataSource = ".",
             InitialCatalog = "ExpenseTrackerDb",
             UserID = "sa",
-            Password = "r00tp@ss",
+            Password = "sasa@1234",
             TrustServerCertificate = true
         };
     }
