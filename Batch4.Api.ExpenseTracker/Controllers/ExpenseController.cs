@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Batch4.Api.ExpenseTracker.BusinessLogic.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Batch4.Api.ExpenseTracker.Controllers
@@ -7,6 +8,13 @@ namespace Batch4.Api.ExpenseTracker.Controllers
     [ApiController]
     public class ExpenseController : ControllerBase
     {
+        private readonly BL_Expense _bl_Expense;
+
+        public ExpenseController()
+        {
+            _bl_Expense = new BL_Expense();
+        }
+
         [HttpGet]
         public IActionResult Read()
         {
@@ -29,6 +37,20 @@ namespace Batch4.Api.ExpenseTracker.Controllers
         public IActionResult GetTotalAmount()
         {
             return Ok();
+        }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            //var item = _bl_Expense.GetExpense(id);
+            //if (item is null)
+            //{
+            //    return NotFound("No Data Found");
+            //}
+
+            var result = _bl_Expense.DeleteExpense(id);
+            string message = result > 0 ? "Delete Successful." : "Delete Failed";
+            return Ok(message);
         }
     }
 }
