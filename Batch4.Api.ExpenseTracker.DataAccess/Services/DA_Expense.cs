@@ -14,5 +14,14 @@ namespace Batch4.Api.ExpenseTracker.DataAccess.Services
         {
             _context = context;
         }
+        public int DeleteExpense(int id)
+        {
+            var item = _context.Expenses.FirstOrDefault(x => x.ExpenseId == id);
+            if (item is null) return 0;
+
+            item.IsDelete = true;
+            var result = _context.SaveChanges();
+            return result;
+        }
     }
 }

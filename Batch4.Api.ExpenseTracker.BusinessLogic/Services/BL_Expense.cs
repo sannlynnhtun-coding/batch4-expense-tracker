@@ -15,5 +15,10 @@ namespace Batch4.Api.ExpenseTracker.BusinessLogic.Services
         {
             _da_Expense = da_Expense;
         }
+        public int DeleteExpense(int id)
+        {
+            var result = _da_Expense.DeleteExpense(id);
+            return result;
+        }
     }
 }

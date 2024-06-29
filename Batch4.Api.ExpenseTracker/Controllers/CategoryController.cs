@@ -1,4 +1,5 @@
 ﻿using Batch4.Api.ExpenseTracker.BusinessLogic.Services;
+using Batch4.Api.ExpenseTracker.DataAccess.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -37,6 +38,20 @@ namespace Batch4.Api.ExpenseTracker.Controllers
         public IActionResult Create()
         {
             return Ok();
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult Update(int id, CategoryModel requestModel)
+        {
+            //var item = _bl_Category.GetCategory(id);
+            //if (item is null)
+            //{
+            //    return NotFound("No Data Found");
+            //}
+
+            var result = _bl_Category.UpdateCategory(id, requestModel);
+            string message = result > 0 ? "Updating Successful." : "Updating Failed.";
+            return Ok(message);
         }
 
         [HttpDelete("{id}")]

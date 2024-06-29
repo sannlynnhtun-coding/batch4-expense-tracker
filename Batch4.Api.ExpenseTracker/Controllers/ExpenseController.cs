@@ -38,5 +38,19 @@ namespace Batch4.Api.ExpenseTracker.Controllers
         {
             return Ok();
         }
+
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            //var item = _bl_Expense.GetExpense(id);
+            //if (item is null)
+            //{
+            //    return NotFound("No Data Found");
+            //}
+
+            var result = _bl_Expense.DeleteExpense(id);
+            string message = result > 0 ? "Delete Successful." : "Delete Failed";
+            return Ok(message);
+        }
     }
 }

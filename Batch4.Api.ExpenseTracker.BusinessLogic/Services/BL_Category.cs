@@ -1,4 +1,5 @@
-﻿using Batch4.Api.ExpenseTracker.DataAccess.Services;
+﻿using Batch4.Api.ExpenseTracker.DataAccess.Models;
+using Batch4.Api.ExpenseTracker.DataAccess.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -21,6 +22,11 @@ namespace Batch4.Api.ExpenseTracker.BusinessLogic.Services
             _da_Category = da_Category;
         }
 
+        public int UpdateCategory(int id,CategoryModel requestModel)
+        {
+            var result = _da_Category.UpdateCategory(id, requestModel);
+            return result;
+        }
 
         public int DeleteCategory(int id)
         {
