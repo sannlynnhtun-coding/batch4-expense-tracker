@@ -25,7 +25,21 @@ namespace Batch4.Api.ExpenseTracker.Controllers
         [HttpGet("{id}")]
         public IActionResult Edit(int id)
         {
-            return Ok();
+            var item = _bl_Expense.GetExpense(id);
+            if (item is null)
+            {
+                return NotFound("No data found.");
+            }
+
+            return Ok(item);
+        }
+
+        [HttpPut("id")]
+        public IActionResult Update(int id , ExpenseModel requestModel) 
+        { 
+            var result = _bl_Expense.UpdateExpense(id , requestModel);
+            string message = result > 0 ? "Update Successful." : "Update Failed";
+            return Ok(message);
         }
 
         [HttpPost]

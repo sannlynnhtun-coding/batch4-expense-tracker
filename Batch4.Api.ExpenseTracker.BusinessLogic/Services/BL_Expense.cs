@@ -17,6 +17,12 @@ namespace Batch4.Api.ExpenseTracker.BusinessLogic.Services
             _da_Expense = da_Expense;
         }
 
+        public ExpenseModel? GetExpense(int id)
+        {
+            var item = _da_Expense.GetExpense(id);
+            return item;
+        }
+
         public int CreateExpense(ExpenseRequestModel expense)
         {
             var result = _da_Expense.CreateExpense(expense);
@@ -27,6 +33,12 @@ namespace Batch4.Api.ExpenseTracker.BusinessLogic.Services
         {
             var lst = _da_Expense.GetExpenseByCategory(categoryId);
             return lst;
+        }
+
+        public int UpdateExpense(int id , ExpenseModel requestModel)
+        {
+            var result = _da_Expense.UpdateExpense(id, requestModel);
+            return result;
         }
 
         public int DeleteExpense(int id)

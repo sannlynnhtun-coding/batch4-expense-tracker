@@ -25,10 +25,11 @@ namespace Batch4.Api.ExpenseTracker.Controllers
         [HttpGet]
         public IActionResult Read()
         {
-            return Ok();
+            var lst = _bl_Category.GetCategorys();
+            return Ok(lst);
         }
 
-        [HttpGet("{id}")]   
+        [HttpGet("{id}")]
         public IActionResult Edit(int id)
         {
             return Ok();
