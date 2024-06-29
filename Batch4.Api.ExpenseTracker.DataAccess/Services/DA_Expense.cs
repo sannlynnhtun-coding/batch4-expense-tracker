@@ -1,4 +1,5 @@
 ﻿using Batch4.Api.ExpenseTracker.DataAccess.Db;
+using Batch4.Api.ExpenseTracker.DataAccess.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,6 +14,12 @@ namespace Batch4.Api.ExpenseTracker.DataAccess.Services
         public DA_Expense(AppDbContext context)
         {
             _context = context;
+        }
+
+        public ExpenseModel? GetExpense(int id)
+        {
+            var item = _context.Expenses.FirstOrDefault(x => x.ExpenseId == id);
+            return item;
         }
         public int DeleteExpense(int id)
         {

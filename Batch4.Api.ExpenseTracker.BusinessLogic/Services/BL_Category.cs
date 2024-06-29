@@ -22,7 +22,13 @@ namespace Batch4.Api.ExpenseTracker.BusinessLogic.Services
             _da_Category = da_Category;
         }
 
-        public int UpdateCategory(int id,CategoryModel requestModel)
+        public List<CategoryModel> GetCategorys()
+        {
+            var lst = _da_Category.GetCategorys();
+            return lst;
+        }
+
+        public int UpdateCategory(int id, CategoryModel requestModel)
         {
             var result = _da_Category.UpdateCategory(id, requestModel);
             return result;
