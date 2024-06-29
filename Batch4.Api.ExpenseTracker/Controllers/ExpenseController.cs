@@ -1,4 +1,5 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Batch4.Api.ExpenseTracker.BusinessLogic.Services;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace Batch4.Api.ExpenseTracker.Controllers
@@ -7,6 +8,13 @@ namespace Batch4.Api.ExpenseTracker.Controllers
     [ApiController]
     public class ExpenseController : ControllerBase
     {
+        private readonly BL_Expense _bl_Expense;
+
+        public ExpenseController(BL_Expense bl_Expense)
+        {
+            _bl_Expense = bl_Expense;
+        }
+
         [HttpGet]
         public IActionResult Read()
         {

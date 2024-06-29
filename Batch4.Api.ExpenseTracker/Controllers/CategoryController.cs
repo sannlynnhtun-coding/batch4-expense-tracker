@@ -11,10 +11,15 @@ namespace Batch4.Api.ExpenseTracker.Controllers
     {
         private readonly BL_Category _bl_Category;
 
-        public CategoryController()
+        public CategoryController(BL_Category bl_Category)
         {
-            _bl_Category = new BL_Category();
+            _bl_Category = bl_Category;
         }
+
+        //public CategoryController()
+        //{
+        //    _bl_Category = new BL_Category();
+        //}
 
         [HttpGet]
         public IActionResult Read()

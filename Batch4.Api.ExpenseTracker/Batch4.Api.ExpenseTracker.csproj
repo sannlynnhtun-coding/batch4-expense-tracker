@@ -13,6 +13,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\Batch4.Api.ExpenseTracker.BusinessLogic\Batch4.Api.ExpenseTracker.BusinessLogic.csproj" />
+    <ProjectReference Include="..\Batch4.Api.ExpenseTracker.DataAccess\Batch4.Api.ExpenseTracker.DataAccess.csproj" />
   </ItemGroup>
 
 </Project>
