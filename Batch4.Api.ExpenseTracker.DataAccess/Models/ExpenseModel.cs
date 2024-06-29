@@ -20,4 +20,18 @@ namespace Batch4.Api.ExpenseTracker.DataAccess.Models
         public DateTime Date { get; set; }
         public bool IsDelete { get; set; }
     }
+
+    public class ExpenseRequestModel
+    {
+        public string Description { get; set; }
+        public decimal Amount { get; set; }
+        public int CategoryId { get; set; }
+    }
+
+    public class ExpenseDetailModel
+    {
+        public string Description { get; set; }
+        public decimal Amount { get; set; }
+        public DateTime Date { get; set; }
+    }
 }

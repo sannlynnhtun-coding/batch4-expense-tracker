@@ -1,4 +1,5 @@
-﻿using Batch4.Api.ExpenseTracker.DataAccess.Services;
+﻿using Batch4.Api.ExpenseTracker.DataAccess.Models;
+using Batch4.Api.ExpenseTracker.DataAccess.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,6 +16,19 @@ namespace Batch4.Api.ExpenseTracker.BusinessLogic.Services
         {
             _da_Expense = da_Expense;
         }
+
+        public int CreateExpense(ExpenseRequestModel expense)
+        {
+            var result = _da_Expense.CreateExpense(expense);
+            return result;
+        }
+
+        public List<ExpenseDetailModel> GetExpenseByCategory(int categoryId)
+        {
+            var lst = _da_Expense.GetExpenseByCategory(categoryId);
+            return lst;
+        }
+
         public int DeleteExpense(int id)
         {
             var result = _da_Expense.DeleteExpense(id);
