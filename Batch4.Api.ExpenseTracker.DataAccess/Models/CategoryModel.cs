@@ -13,6 +13,6 @@ namespace Batch4.Api.ExpenseTracker.DataAccess.Models
     {
         [Key]
         public int CategoryId { get; set; }
-        public string Name { get; set; }
+        public string CategoryName { get; set; }
     }
 }
