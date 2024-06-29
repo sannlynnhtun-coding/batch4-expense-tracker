@@ -25,7 +25,13 @@ namespace Batch4.Api.ExpenseTracker.Controllers
         [HttpGet("{id}")]
         public IActionResult Edit(int id)
         {
-            return Ok();
+            var item = _bl_Expense.GetExpense(id);
+            if (item is null)
+            {
+                return NotFound("No data found.");
+            }
+
+            return Ok(item);
         }
 
         [HttpPut("id")]

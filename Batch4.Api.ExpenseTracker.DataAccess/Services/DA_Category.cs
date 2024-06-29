@@ -18,6 +18,12 @@ public class DA_Category
         _context = context;
     }
 
+    public List<CategoryModel> GetCategorys()
+    {
+        var lst = _context.Categories.ToList();
+        return lst;
+    }
+
     public int UpdateCategory(int id, CategoryModel requestModel)
     {
         var item = _context.Categories.FirstOrDefault(x => x.CategoryId == id);
