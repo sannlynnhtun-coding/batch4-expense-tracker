@@ -23,6 +23,12 @@ public class DA_Category
         var lst = _context.Categories.ToList();
         return lst;
     }
+    
+    public CategoryModel GetCategory(int id)
+    {
+        var result = _context.Categories.FirstOrDefault(x => x.CategoryId == id);
+        return result;
+    }
 
     public int UpdateCategory(int id, CategoryModel requestModel)
     {
