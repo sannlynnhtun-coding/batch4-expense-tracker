@@ -1,6 +1,6 @@
-﻿namespace Batch4.Api.ExpenseTracker.Controllers
+﻿namespace Batch4.Api.ExpenseTracker.Controllers;
+
+public class ExpenseController
 {
-    public class ExpenseController
-    {
-    }
+   
 }

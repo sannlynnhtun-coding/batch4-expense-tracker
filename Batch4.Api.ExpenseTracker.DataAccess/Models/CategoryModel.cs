@@ -6,13 +6,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Batch4.Api.ExpenseTracker.DataAccess.Models
+namespace Batch4.Api.ExpenseTracker.DataAccess.Models;
+
+[Table("Tbl_Category")]
+public class CategoryModel
 {
-    [Table("Tbl_Category")]
-    public class CategoryModel
-    {
-        [Key]
-        public int CategoryId { get; set; }
-        public string Name { get; set; }
-    }
+    [Key]
+    public int CategoryId { get; set; }
+    public string CategoryName { get; set; }
 }
