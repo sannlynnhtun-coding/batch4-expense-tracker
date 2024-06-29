@@ -43,11 +43,24 @@ namespace Batch4.Api.ExpenseTracker.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create()
+        public IActionResult Create(ExpenseRequestModel expense)
         {
-            return Ok();
+            var result = _bl_Expense.CreateExpense(expense);
+            string message = result > 0 ? "Saving Successful" : "Saving Failded";
+            return Ok(message);
         }
 
+        [HttpGet("category/{categoryId}")]
+        public IActionResult GetExpenseByCategory(int categoryId)
+        {
+            var lst = _bl_Expense.GetExpenseByCategory(categoryId);
+            if (lst is null || lst.Count == 0)
+            {
+                return NotFound("No data found");
+            }
+            return Ok(lst);
+        }
+        
         [HttpGet("totalamount")]
         public IActionResult GetTotalAmount()
         {

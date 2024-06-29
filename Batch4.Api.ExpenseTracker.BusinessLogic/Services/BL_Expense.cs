@@ -23,6 +23,18 @@ namespace Batch4.Api.ExpenseTracker.BusinessLogic.Services
             return item;
         }
 
+        public int CreateExpense(ExpenseRequestModel expense)
+        {
+            var result = _da_Expense.CreateExpense(expense);
+            return result;
+        }
+
+        public List<ExpenseDetailModel> GetExpenseByCategory(int categoryId)
+        {
+            var lst = _da_Expense.GetExpenseByCategory(categoryId);
+            return lst;
+        }
+
         public int UpdateExpense(int id , ExpenseModel requestModel)
         {
             var result = _da_Expense.UpdateExpense(id, requestModel);
