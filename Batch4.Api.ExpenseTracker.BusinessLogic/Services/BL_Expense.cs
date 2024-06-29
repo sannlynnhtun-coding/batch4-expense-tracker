@@ -1,5 +1,4 @@
 ﻿using Batch4.Api.ExpenseTracker.DataAccess.Services;
-using Microsoft.IdentityModel.Tokens;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -11,9 +10,10 @@ namespace Batch4.Api.ExpenseTracker.BusinessLogic.Services
     public class BL_Expense
     {
         private readonly DA_Expense _da_Expense;
-        public BL_Expense()
+
+        public BL_Expense(DA_Expense da_Expense)
         {
-            _da_Expense = new DA_Expense();
+            _da_Expense = da_Expense;
         }
         public int DeleteExpense(int id)
         {

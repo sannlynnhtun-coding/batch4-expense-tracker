@@ -10,10 +10,9 @@ namespace Batch4.Api.ExpenseTracker.DataAccess.Services
     public class DA_Expense
     {
         private readonly AppDbContext _context;
-
-        public DA_Expense()
+        public DA_Expense(AppDbContext context)
         {
-            _context = new AppDbContext();
+            _context = context;
         }
         public int DeleteExpense(int id)
         {

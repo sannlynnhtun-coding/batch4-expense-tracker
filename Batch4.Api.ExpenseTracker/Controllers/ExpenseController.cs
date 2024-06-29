@@ -10,9 +10,9 @@ namespace Batch4.Api.ExpenseTracker.Controllers
     {
         private readonly BL_Expense _bl_Expense;
 
-        public ExpenseController()
+        public ExpenseController(BL_Expense bl_Expense)
         {
-            _bl_Expense = new BL_Expense();
+            _bl_Expense = bl_Expense;
         }
 
         [HttpGet]

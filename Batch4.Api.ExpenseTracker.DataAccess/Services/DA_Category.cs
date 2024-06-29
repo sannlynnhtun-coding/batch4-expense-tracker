@@ -12,9 +12,10 @@ namespace Batch4.Api.ExpenseTracker.DataAccess.Services;
 public class DA_Category
 {
     private readonly AppDbContext _context;
-    public DA_Category()
+    public DA_Category(AppDbContext context)
     {
-        _context = new AppDbContext();
+        //_context = new AppDbContext();
+        _context = context;
     }
 
     public int UpdateCategory(int id, CategoryModel requestModel)
