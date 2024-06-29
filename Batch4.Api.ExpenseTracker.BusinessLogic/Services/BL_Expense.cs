@@ -12,9 +12,16 @@ namespace Batch4.Api.ExpenseTracker.BusinessLogic.Services
     {
         private readonly DA_Expense _da_Expense;
 
+        public object Expenses { get; set; }
+
         public BL_Expense(DA_Expense da_Expense)
         {
             _da_Expense = da_Expense;
+        }
+        public List<ExpenseModel> GetExpenses()
+        {
+            var lst = _da_Expense.GetExpense();
+            return lst;
         }
 
         public ExpenseModel? GetExpense(int id)
