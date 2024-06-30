@@ -52,6 +52,14 @@ namespace Batch4.Api.ExpenseTracker.DataAccess.Services
             return lst;
         }
 
+        public decimal GetTotalExpense()
+        {
+            var total = _context.Expenses
+                .Where(x => x.IsDelete == false)
+                .Sum(x => x.Amount);
+            return total;
+        }
+
         public int UpdateExpense(int id, ExpenseModel requestModel)
         {
             var item = _context.Expenses.FirstOrDefault(x => x.ExpenseId == id);
