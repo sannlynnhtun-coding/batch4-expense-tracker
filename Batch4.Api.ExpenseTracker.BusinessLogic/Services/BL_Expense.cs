@@ -35,6 +35,12 @@ namespace Batch4.Api.ExpenseTracker.BusinessLogic.Services
             return lst;
         }
 
+        public decimal GetTotalExpense()
+        {
+            var total = _da_Expense.GetTotalExpense();
+            return total;
+        }
+
         public int UpdateExpense(int id , ExpenseModel requestModel)
         {
             var result = _da_Expense.UpdateExpense(id, requestModel);
