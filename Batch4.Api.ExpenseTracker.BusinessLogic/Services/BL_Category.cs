@@ -34,6 +34,11 @@ public class BL_Category
         return result;
 
     }
+    public int CreateCategory(CategoryRequestModel category)
+    {
+        var result = _da_Category.CreateCategory(category);
+        return result;
+    }
 
     public int UpdateCategory(int id, CategoryModel requestModel)
     {

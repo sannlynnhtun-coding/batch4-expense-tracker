@@ -11,10 +11,10 @@ namespace Batch4.Api.ExpenseTracker.DataAccess.Db
     {
         public static SqlConnectionStringBuilder SqlConnectionStringBuilder = new SqlConnectionStringBuilder()
         {
-            DataSource = ".",
+            DataSource = "Eieilin",
             InitialCatalog = "ExpenseTrackerDb",
             UserID = "sa",
-            Password = "sasa@1234",
+            Password = "sasa@123",
             TrustServerCertificate = true
         };
     }
