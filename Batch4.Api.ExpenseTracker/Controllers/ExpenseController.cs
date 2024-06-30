@@ -36,14 +36,6 @@ public class ExpenseController : ControllerBase
         return Ok(item);
     }
 
-    [HttpPut("id")]
-    public IActionResult Update(int id , ExpenseModel requestModel) 
-    { 
-        var result = _bl_Expense.UpdateExpense(id , requestModel);
-        string message = result > 0 ? "Update Successful." : "Update Failed";
-        return Ok(message);
-    }
-
     [HttpPost]
     public IActionResult Create(ExpenseRequestModel expense)
     {
@@ -52,21 +44,12 @@ public class ExpenseController : ControllerBase
         return Ok(message);
     }
 
-    [HttpGet("category/{categoryId}")]
-    public IActionResult GetExpenseByCategory(int categoryId)
-    {
-        var lst = _bl_Expense.GetExpenseByCategory(categoryId);
-        if (lst is null || lst.Count == 0)
-        {
-            return NotFound("No data found");
-        }
-        return Ok(lst);
-    }
-    
-    [HttpGet("totalamount")]
-    public IActionResult GetTotalAmount()
-    {
-        return Ok();
+    [HttpPut("id")]
+    public IActionResult Update(int id , ExpenseModel requestModel) 
+    { 
+        var result = _bl_Expense.UpdateExpense(id , requestModel);
+        string message = result > 0 ? "Update Successful." : "Update Failed";
+        return Ok(message);
     }
 
     [HttpDelete("{id}")]
@@ -82,4 +65,24 @@ public class ExpenseController : ControllerBase
         string message = result > 0 ? "Delete Successful." : "Delete Failed";
         return Ok(message);
     }
+
+    [HttpGet("category/{categoryId}")]
+    public IActionResult GetExpenseByCategory(int categoryId)
+    {
+        var lst = _bl_Expense.GetExpenseByCategory(categoryId);
+        if (lst is null || lst.Count == 0)
+        {
+            return NotFound("No data found");
+        }
+        return Ok(lst);
+    }
+
+    [HttpGet("totalamount")]
+    public IActionResult GetTotalAmount()
+    {
+        decimal total = 0;
+        total = _bl_Expense.GetTotalExpense();
+        return Ok(new { TotalAmount = total });
+    }
+
 }

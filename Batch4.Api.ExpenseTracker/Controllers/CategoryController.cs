@@ -63,6 +63,12 @@ public class CategoryController : ControllerBase
     [HttpDelete("{id}")]
     public IActionResult Delete(int id)
     {
+        var item = _bl_Category.GetCategory(id);
+        if (item is null)
+        {
+            return NotFound("No Data Found.");
+        }
+
         var result = _bl_Category.DeleteCategory(id);
         string message = result > 0 ? "Delete Successful." : "Delete Failed";
         return Ok(message);
