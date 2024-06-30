@@ -1,4 +1,5 @@
 ﻿using Batch4.Api.ExpenseTracker.BusinessLogic.Services;
+using Batch4.Api.ExpenseTracker.DataAccess.Db;
 using Batch4.Api.ExpenseTracker.DataAccess.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -17,9 +18,10 @@ public class ExpenseController : ControllerBase
     }
 
     [HttpGet]
-    public IActionResult Read()
+    public IActionResult View()
     {
-        return Ok();
+        var lst = _bl_Expense.GetExpenses();
+        return Ok(lst);
     }
 
     [HttpGet("{id}")]

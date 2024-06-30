@@ -17,6 +17,11 @@ namespace Batch4.Api.ExpenseTracker.DataAccess.Services
             _context = context;
         }
 
+        public List<ExpenseModel> GetExpense()
+        {
+            var lst = _context.Expenses.ToList() ;
+            return lst;
+        }
         public ExpenseModel? GetExpense(int id)
         {
             var item = _context.Expenses.FirstOrDefault(x => x.ExpenseId == id);

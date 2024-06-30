@@ -15,4 +15,10 @@ namespace Batch4.Api.ExpenseTracker.DataAccess.Models
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }
     }
+
+    public class CategoryRequestModel
+    {
+        public int CategoryId { get; set; }
+        public string CategoryName { get; set; }
+    }
 }

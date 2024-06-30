@@ -41,9 +41,11 @@ public class CategoryController : ControllerBase
     }
 
     [HttpPost]
-    public IActionResult Create()
+    public IActionResult Create(CategoryRequestModel category)
     {
-        return Ok();
+        var result = _bl_Category.CreateCategory(category);
+        string message = result > 0 ? "Saving Successful" : "Saving Failded";
+        return Ok(message);
     }
 
     [HttpPut("{id}")]

@@ -30,6 +30,18 @@ public class DA_Category
         return result;
     }
 
+    public int CreateCategory(CategoryRequestModel category)
+    {
+        var item = new CategoryModel
+        {
+            CategoryId = category.CategoryId,
+            CategoryName = category.CategoryName
+        };
+        _context.Categories.Add(item);
+        var result = _context.SaveChanges();
+        return result;
+    }
+
     public int UpdateCategory(int id, CategoryModel requestModel)
     {
         var item = _context.Categories.FirstOrDefault(x => x.CategoryId == id);
