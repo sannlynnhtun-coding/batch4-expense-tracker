@@ -24,7 +24,7 @@ namespace Batch4.Api.ExpenseTracker.DataAccess.Services
         }
         public ExpenseModel? GetExpense(int id)
         {
-            var item = _context.Expenses.FirstOrDefault(x => x.ExpenseId == id);
+            var item = _context.Expenses.FirstOrDefault(x => x.ExpenseId == id && x.IsDelete == false);
             return item;
         }
 
