@@ -44,7 +44,7 @@ public class ExpenseController : ControllerBase
         return Ok(message);
     }
 
-    [HttpPut("id")]
+    [HttpPut("{id}")]
     public IActionResult Update(int id , ExpenseModel requestModel) 
     { 
         var result = _bl_Expense.UpdateExpense(id , requestModel);

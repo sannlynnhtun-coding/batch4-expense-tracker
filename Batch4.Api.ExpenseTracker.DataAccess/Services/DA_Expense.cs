@@ -46,7 +46,7 @@ namespace Batch4.Api.ExpenseTracker.DataAccess.Services
 
         public List<ExpenseDetailModel> GetExpenseByCategory(int categoryId)
         {
-            var result = _context.Expenses.Where(x => x.CategoryId == categoryId);
+            var result = _context.Expenses.Where(x => x.CategoryId == categoryId && x.IsDelete == false);
 
             List<ExpenseDetailModel> lst = result.Select(x => new ExpenseDetailModel
             {
